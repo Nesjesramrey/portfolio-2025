@@ -6,9 +6,9 @@
         <h3>¡Hablemos!</h3>
         <p>¿Tienes un proyecto en mente? ¿Necesitas ayuda con análisis de datos, desarrollo de software o consultoría contable? No dudes en contactarme.</p>
         <div class="social-links">
-          <a href="#" class="social-link">LinkedIn</a>
-          <a href="#" class="social-link">GitHub</a>
-          <a href="#" class="social-link">Twitter</a>
+          <a href="https://www.linkedin.com/in/nestor-jesus-ramirez-reyes/" class="social-link">LinkedIn</a>
+          <a href="https://github.com/Nesjesramrey" class="social-link">GitHub</a>
+          <a href="https://twitter.com/nesramblue" class="social-link">Twitter</a>
         </div>
       </div>
       <form class="contact-form" @submit.prevent="handleSubmit">
