@@ -20,6 +20,7 @@
             v-model="formData.name"
             required
             placeholder="Tu nombre"
+            :disabled="loading"
           >
         </div>
         <div class="form-group">
@@ -30,6 +31,7 @@
             v-model="formData.email"
             required
             placeholder="tu@email.com"
+            :disabled="loading"
           >
         </div>
         <div class="form-group">
@@ -40,6 +42,7 @@
             v-model="formData.subject"
             required
             placeholder="Asunto de tu mensaje"
+            :disabled="loading"
           >
         </div>
         <div class="form-group">
@@ -50,15 +53,27 @@
             required
             placeholder="Tu mensaje"
             rows="5"
+            :disabled="loading"
           ></textarea>
         </div>
-        <button type="submit" class="submit-button">Enviar Mensaje</button>
+        <div v-if="submitStatus === 'success'" class="status-message success">
+          ¡Mensaje enviado con éxito! Gracias por contactarme.
+        </div>
+        <div v-if="submitStatus === 'error'" class="status-message error">
+          {{ errorMessage }}
+        </div>
+        <button type="submit" class="submit-button" :disabled="loading">
+          <span v-if="!loading">Enviar Mensaje</span>
+          <span v-else>Enviando...</span>
+        </button>
       </form>
     </div>
   </section>
 </template>
 
 <script>
+import emailjs from '@emailjs/browser';
+
 export default {
   name: 'Contact',
   data() {
@@ -68,19 +83,47 @@ export default {
         email: '',
         subject: '',
         message: ''
-      }
+      },
+      loading: false,
+      submitStatus: null,
+      errorMessage: ''
     }
   },
   methods: {
-    handleSubmit() {
-      // Aquí se implementará la lógica para enviar el formulario
-      console.log('Formulario enviado:', this.formData)
-      // Resetear el formulario
-      this.formData = {
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    async handleSubmit() {
+      this.loading = true;
+      this.submitStatus = null;
+      this.errorMessage = '';
+
+      try {
+        const templateParams = {
+          from_name: this.formData.name,
+          from_email: this.formData.email,
+          subject: this.formData.subject,
+          message: this.formData.message,
+          to_name: 'Nestor' // Tu nombre como destinatario
+        };
+
+        await emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          templateParams,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+
+        this.submitStatus = 'success';
+        this.formData = {
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        };
+      } catch (error) {
+        console.error('Error al enviar el correo:', error);
+        this.submitStatus = 'error';
+        this.errorMessage = 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.';
+      } finally {
+        this.loading = false;
       }
     }
   }
@@ -193,6 +236,30 @@ textarea:focus {
 
 .submit-button:hover {
   background: #3aa876;
+}
+
+.submit-button:disabled {
+  background: #a8a8a8;
+  cursor: not-allowed;
+}
+
+.status-message {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.status-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 @media (max-width: 768px) {
