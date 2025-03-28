@@ -9,19 +9,31 @@
           <li>Machine Learning</li>
           <li>Estadística</li>
           <li>Python y R</li>
+          <li>Chatbots / LLMS dentro de tu web</li>
         </ul>
       </div>
       <div class="skill-category">
         <h3>Desarrollo de Software</h3>
         <ul class="skill-list">
           <li>Desarrollo Web Full Stack</li>
-          <li>Vue.js / React</li>
+          <li>Vue.js / React / Angular</li>
           <li>Node.js</li>
           <li>APIs RESTful</li>
+          <li>Docker / AWS Services</li>
+          <li>Javascript / Python / Typescript</li>
         </ul>
       </div>
       <div class="skill-category">
         <h3>Contabilidad</h3>
+        <ul class="skill-list">
+          <li>Contabilidad Financiera</li>
+          <li>Análisis Financiero</li>
+          <li>Gestión Fiscal</li>
+          <li>Auditoría</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Certificaciones y cursos</h3>
         <ul class="skill-list">
           <li>Contabilidad Financiera</li>
           <li>Análisis Financiero</li>

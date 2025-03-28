@@ -1,10 +1,10 @@
 <template>
   <header class="header">
     <nav class="nav-container">
-      <div class="logo">Portfolio</div>
+      <div class="logo">Jatech</div>
       <div class="nav-links">
         <router-link to="/" class="nav-link">Inicio</router-link>
-        <router-link to="/portfolio" class="nav-link">Portfolio</router-link>
+        <router-link to="/portfolio" class="nav-link">Portafolio</router-link>
         <router-link to="/blog" class="nav-link">Blog</router-link>
         <router-link to="/contacto" class="nav-link">Contacto</router-link>
       </div>

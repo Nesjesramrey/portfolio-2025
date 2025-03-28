@@ -2,6 +2,7 @@
   <section class="home-section">
     <div class="hero">
       <h1 class="hero-title">Bienvenido a mi web</h1>
+      <img src="../assets/avatar.png" alt="Perfil" class="hero-avatar" />
       <h2 class='hero-name'>Soy Nestor Jesus Ramirez Reyes</h2>
       <p class="hero-subtitle">Científico de Datos | Ingeniero de Software | Contador</p>
       <p class="hero-description">Combinando análisis de datos, desarrollo de software y experiencia financiera para crear soluciones innovadoras.</p>
@@ -47,6 +48,15 @@ export default {
   font-size: 3rem;
   color: #2c3e50;
   margin-bottom: 1rem;
+}
+
+.hero-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  display: block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .hero-subtitle {
