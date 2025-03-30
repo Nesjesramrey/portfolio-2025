@@ -1,10 +1,10 @@
 <template>
   <header class="header">
     <nav class="nav-container">
-      <div class="container-logo">
-      <img src="../assets/iconjatech.png" alt="Perfil" class="hero-icon" />
-      <div class="logo">Jatech</div>
-    </div>
+      <router-link to="/" class="container-logo">
+        <img src="../assets/iconjatech.png" alt="Perfil" class="hero-icon" />
+        <div class="logo">Jatech</div>
+      </router-link>
       <div class="nav-links">
         <router-link to="/" class="nav-link">Inicio</router-link>
         <router-link to="/portfolio" class="nav-link">Portafolio</router-link>
@@ -17,8 +17,8 @@
 
 <script>
 export default {
-  name: 'Header'
-}
+  name: "Header",
+};
 </script>
 
 <style scoped>
@@ -33,8 +33,6 @@ export default {
   z-index: 1000;
 }
 
-
-
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -43,7 +41,7 @@ export default {
   align-items: center;
 }
 
-.container-logo{
+.container-logo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
