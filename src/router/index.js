@@ -3,6 +3,7 @@ import Home from '../components/Home.vue'
 import Portfolio from '../components/Portfolio.vue'
 import Blog from '../components/Blog.vue'
 import Contact from '../components/Contact.vue'
+import ArticleView from '../components/ArticleView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/blog',
       name: 'Blog',
       component: Blog
+    },
+    {
+      path: '/blog/:id',
+      name: 'ArticleView',
+      component: ArticleView
     },
     {
       path: '/contacto',

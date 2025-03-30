@@ -9,7 +9,7 @@
           <p class="blog-excerpt">{{ post.excerpt }}</p>
           <div class="blog-meta">
             <span class="blog-date">{{ post.date }}</span>
-            <button class="read-more">Leer más</button>
+            <router-link :to="`/blog/${post.id}`" class="read-more">Leer más</router-link>
           </div>
         </div>
       </article>
